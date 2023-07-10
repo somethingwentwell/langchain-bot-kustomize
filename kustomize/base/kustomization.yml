@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1  
+kind: Kustomization  
+  
+resources:  
+  # - namespace.yml  
+  - env-configmap.yml  
+  - sql-init-configmap.yml  
+  # - insource-pv.yml  
+  # - postgres-pv.yml  
+  # - insource-pvc.yml  
+  # - postgres-pvc.yml 
+  # - get-app-data.yml 
+  - postgres-deployment.yml
+  - insource-deployment.yml  
+  - admin-api-deployment.yml  
+  - insource-service.yml  
+  - admin-api-service.yml    
+  - postgres-service.yml  
+  - ingress.yml

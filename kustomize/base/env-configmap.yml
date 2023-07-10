@@ -1,0 +1,37 @@
+apiVersion: v1  
+kind: ConfigMap  
+metadata:  
+  name: env-file
+  namespace: insource 
+data:  
+  .env: |  
+    AGENT_TYPE=DIRECT_GPT  
+    OPENAI_API_TYPE=azure  
+    OPENAI_API_VERSION=2023-03-15-preview  
+    OPENAI_API_BASE=https://fevaworksopenai.openai.azure.com/  
+    OPENAI_API_KEY=859d2507612b4d9eaf5135292f0a5436  
+    EMBEDDING_DEPLOYMENT_NAME=text-embedding-ada-002  
+    CHAT_DEPLOYMENT_NAME=gpt-35-turbo-16k  
+    CHAT_MODEL_NAME=gpt-35-turbo-16k  
+    CHAT_SYSTEM_PROMPT=You are an AI Shopping Helper that helps people to find mall information.  
+    POSTGRES_HOST=postgres
+    POSTGRES_PORT=5432  
+    POSTGRES_USER=postgres  
+    POSTGRES_PASSWORD=postgres  
+    MicrosoftAppType=MultiTenant  
+    MicrosoftAppId=9ca6761f-5ef7-44ca-8b39-211b77050987  
+    MicrosoftAppPassword=~Xi8Q~OQlwSPwE40kPfDYBTnw42x2psfZUn9Qbzb  
+    MicrosoftAppTenantId=6b073a9c-bc00-4c50-8a11-811c4697765d  
+    LC_API_URL=http://127.0.0.1/run  
+    ZAPIER_NLA_API_KEY=sk-ak-iYZuHSvDjVnvmTEsEvkTA3CMuM  
+    BING_SUBSCRIPTION_KEY=5e2bdfd1085243cfa7e1b992de0d41d6  
+    BING_SEARCH_URL=https://api.bing.microsoft.com/v7.0/search/  
+    AZURE_COGNITIVE_SEARCH_URL=https://teccogsearchs.search.windows.net  
+    AZURE_COGNITIVE_SEARCH_KEY=2CrhpkHPxCCh7eKC3V3018NEpbGQAaNjcAZ9tsPO5cAzSeC2Vvqm  
+    AZURE_COGNITIVE_SEARCH_INDEX_NAME=student  
+    AZURE_COGNITIVE_SEARCH_DESC=123Useful for when you need to answer questions about students. Input should be a fully formed question.  
+    AZURE_COGS_KEY=ec34e4ba9f484cbc9a78e48df96dd089  
+    AZURE_COGS_ENDPOINT=https://teccognitiveservices.cognitiveservices.azure.com/  
+    AZURE_COGS_REGION=southeastasia  
+    TOTAL_TOKEN_LIMIT=  
+    TOTAL_TOKEN_LIMIT_PER_USER=  

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-insource-data 
+  namespace: insource
+spec:
+  volumeName: pv-insource-data 
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi 

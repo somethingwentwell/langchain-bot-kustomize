@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1  
+kind: Ingress  
+metadata:  
+  name: insource-ingress  
+  namespace: insource 
+  annotations:  
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:  
+  ingressClassName: "nginx"  
+  rules:  
+  - host: insource.local  
+    http:  
+      paths:  
+      - path: /test/api(/|$)(.*)
+        pathType: ImplementationSpecific  
+        backend:  
+          service:  
+            name: insource-api  
+            port:  
+              number: 80  
+  - host: insource.local
+    http:  
+      paths:  
+      - path: /test/admin-api(/|$)(.*)
+        pathType: ImplementationSpecific  
+        backend:  
+          service:  
+            name: admin-api  
+            port:  
+              number: 80  

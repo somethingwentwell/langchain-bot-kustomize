@@ -1,0 +1,52 @@
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: admin-api
+  namespace: insource 
+spec:  
+  replicas: 1  
+  selector:  
+    matchLabels:  
+      app: admin-api  
+  template:  
+    metadata:  
+      labels:  
+        app: admin-api
+    spec:  
+      containers:  
+      - name: admin-api
+        image: warching/langchain-base-image:0.0.221  
+        ports:  
+        - containerPort: 80  
+        command:  
+        - /bin/bash  
+        - -c  
+        - |  
+            CLONE_DIR="https://github.com/somethingwentwell/azure-openai-langchain-bot"  
+              
+            # Check if the directory exists  
+            if [ -d "$CLONE_DIR" ]; then  
+              # If the directory exists, update the repository  
+              echo "Directory $CLONE_DIR exists."  
+            else  
+              # If the directory does not exist, clone the repository  
+              echo "Cloning repository into $CLONE_DIR..."  
+              git clone "$CLONE_DIR"  
+            fi  
+            cp .env.test azure-openai-langchain-bot/.env
+            cd azure-openai-langchain-bot
+            uvicorn adminapi:app --root-path /test/admin-api --reload --host 0.0.0.0 --port 80  
+        volumeMounts:  
+          - name: shared-data  
+            mountPath: /app
+            subPath: azure-openai-langchain-bot
+          - name: env-file  
+            mountPath: /app/.env.test
+            subPath: .env
+      volumes:  
+        - name: shared-data  
+          persistentVolumeClaim:  
+            claimName: pvc-insource-data
+        - name: env-file  
+          configMap:  
+            name: env-file  
