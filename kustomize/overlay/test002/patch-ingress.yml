@@ -13,7 +13,7 @@ spec:
             name: insource-api  
             port:  
               number: 80  
-        path: /test001/api(/|$)(.*)  
+        path: /test002/api(/|$)(.*)  
         pathType: ImplementationSpecific  
   - host: insource.southeastasia.cloudapp.azure.com
     http:  
@@ -23,5 +23,5 @@ spec:
             name: admin-api  
             port:  
               number: 80  
-        path: /test001/admin-api(/|$)(.*)  
+        path: /test002/admin-api(/|$)(.*)  
         pathType: ImplementationSpecific  
