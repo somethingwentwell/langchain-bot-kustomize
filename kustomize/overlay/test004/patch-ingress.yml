@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1  
+kind: Ingress  
+metadata:  
+  name: insource-ingress  
+  namespace: insource
+spec:  
+  rules:  
+  - host: insource.southeastasia.cloudapp.azure.com
+    http:  
+      paths:  
+      - backend:  
+          service:  
+            name: insource-api  
+            port:  
+              number: 80  
+        path: /test004/api(/|$)(.*)  
+        pathType: ImplementationSpecific  
+  - host: insource.southeastasia.cloudapp.azure.com 
+    http:  
+      paths:  
+      - backend:  
+          service:  
+            name: admin-api  
+            port:  
+              number: 80  
+        path: /test004/admin-api(/|$)(.*)  
+        pathType: ImplementationSpecific  
