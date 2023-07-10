@@ -2,11 +2,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim  
 metadata:  
   name: postgres-pv-claim  
-  namespace: insource1
+  namespace: <insource-namespace>
 spec:
-  volumeName: <postgres-pv-name>
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
+  storageClassName: <postgres-pv-name>
   resources:
     requests:
-      storage: 1Gi 
+      storage: 1Gi

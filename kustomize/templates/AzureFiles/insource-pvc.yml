@@ -2,11 +2,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-insource-data 
-  namespace: insource001
+  namespace: <insource-namespace>
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: insource-pv-001
+  storageClassName: <insource-pv-name>
   resources:
     requests:
       storage: 1Gi

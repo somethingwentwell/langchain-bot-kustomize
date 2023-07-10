@@ -30,13 +30,28 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 
 ## Use script to create overlay
 
+1. hostPath
 ```
-sudo bash ./create_overlay.sh --overlay-folder-name test001 \
+sudo bash ./create_overlay.sh --template-type hostPath \
+ --overlay-folder-name test001 \
  --postgres-pv-name postgres-pv-001 \
  --postgres-data-path postgres-data-001 \
  --insource-pv-name insource-pv-001 \
  --insource-data-path insource-data-001 \
  --insource-namespace insource001 \
+ --insource-ingress-host insource.local \
+ --insource-ingress-root-path test001
+```
+
+```
+sudo bash ./create_overlay.sh --template-type AzureFiles \
+ --overlay-folder-name test001 \
+ --postgres-pv-name postgres-pv-001 \
+ --postgres-data-path postgres-data-001 \
+ --insource-pv-name insource-pv-001 \
+ --insource-data-path insource-data-001 \
+ --insource-namespace insource001 \
+ --insource-ingress-host <IP>.nip.io \
  --insource-ingress-root-path test001
 ```
 

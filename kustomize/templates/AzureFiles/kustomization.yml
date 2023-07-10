@@ -7,8 +7,8 @@ bases:
 
 resources:  
   - namespace.yml   
-  - insource-pv.yml  
-  - postgres-pv.yml  
+  - insource-sc.yml  
+  - postgres-sc.yml  
   - insource-pvc.yml  
   - postgres-pvc.yml 
  

@@ -5,7 +5,7 @@ metadata:
   namespace: insource
 spec:  
   rules:  
-  - host: 20.195.125.92.nip.io
+  - host: <insource-ingress-host>
     http:  
       paths:  
       - backend:  
@@ -13,9 +13,9 @@ spec:
             name: insource-api  
             port:  
               number: 80  
-        path: /test001/api(/|$)(.*)  
+        path: /<insource-ingress-root-path>/api(/|$)(.*)  
         pathType: ImplementationSpecific  
-  - host: 20.195.125.92.nip.io 
+  - host: <insource-ingress-host> 
     http:  
       paths:  
       - backend:  
@@ -23,5 +23,5 @@ spec:
             name: admin-api  
             port:  
               number: 80  
-        path: /test001/admin-api(/|$)(.*)  
+        path: /<insource-ingress-root-path>/admin-api(/|$)(.*)  
         pathType: ImplementationSpecific  

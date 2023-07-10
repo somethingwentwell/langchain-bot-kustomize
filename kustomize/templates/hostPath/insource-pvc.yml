@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc-insource-data 
-  namespace: insource1
+  namespace: <insource-namespace>
 spec:
   volumeName: <insource-pv-name>
   accessModes:

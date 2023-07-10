@@ -5,7 +5,7 @@ metadata:
   namespace: insource
 spec:  
   rules:  
-  - host: insource.local  
+  - host: <insource-ingress-host>
     http:  
       paths:  
       - backend:  
@@ -15,7 +15,7 @@ spec:
               number: 80  
         path: /<insource-ingress-root-path>/api(/|$)(.*)  
         pathType: ImplementationSpecific  
-  - host: insource.local  
+  - host: <insource-ingress-host> 
     http:  
       paths:  
       - backend:  

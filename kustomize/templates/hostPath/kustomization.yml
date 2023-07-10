@@ -7,14 +7,15 @@ bases:
 
 resources:  
   - namespace.yml   
-  - insource-sc.yml  
-  - postgres-sc.yml  
+  - insource-pv.yml  
+  - postgres-pv.yml  
   - insource-pvc.yml  
   - postgres-pvc.yml 
  
-namespace: insource001
+namespace: <insource-namespace>
 
 patchesStrategicMerge:  
+  - patch-postgres-deployment.yml
   - patch-insource-api-deployment.yml
   - patch-admin-api-deployment.yml
   - patch-ingress.yml
