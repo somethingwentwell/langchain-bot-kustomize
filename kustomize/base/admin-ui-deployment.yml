@@ -1,23 +1,23 @@
 apiVersion: apps/v1  
 kind: Deployment  
 metadata:  
-  name: admin-api
+  name: admin-ui
   namespace: insource 
 spec:  
   replicas: 1  
   selector:  
     matchLabels:  
-      app: admin-api  
+      app: admin-ui  
   template:  
     metadata:  
       labels:  
-        app: admin-api
+        app: admin-ui
     spec:  
       containers:  
-      - name: admin-api
-        image: warching/langchain-base-image:0.0.221  
+      - name: admin-ui
+        image: warching/streamlit:latest
         ports:  
-        - containerPort: 80  
+        - containerPort: 8501  
         command:  
         - /bin/bash  
         - -c  
@@ -34,9 +34,9 @@ spec:
               echo "Cloning repository into $GIT_REPO..."  
               git clone "$GIT_REPO"  
             fi  
-            cp .env.test azure-openai-langchain-bot/.env
-            cd azure-openai-langchain-bot
-            uvicorn adminapi:app --root-path /test/admin-api --reload --host 0.0.0.0 --port 80  
+            export $(grep -v '^#' .env.test | xargs)
+            cd azure-openai-langchain-bot/admin-ui
+            streamlit run 0_📚_InSource_Home.py --server.fileWatcherType poll --server.port=8501 --server.address=0.0.0.0
         volumeMounts:  
           - name: shared-data  
             mountPath: /app
@@ -44,6 +44,11 @@ spec:
           - name: env-file  
             mountPath: /app/.env.test
             subPath: .env
+        env:
+          - name: INSOURCE_CHAT_HOST
+            value: "insource.local/test/api"
+          - name: INSOURCE_ADMIN_HOST
+            value: "insource.local/test/admin-api"
       volumes:  
         - name: shared-data  
           persistentVolumeClaim:  

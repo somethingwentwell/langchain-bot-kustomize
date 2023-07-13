@@ -15,7 +15,7 @@ spec:
               number: 80  
         path: /test001/api(/|$)(.*)  
         pathType: ImplementationSpecific  
-  - host: insource.southeastasia.cloudapp.azure.com
+  - host: insource.southeastasia.cloudapp.azure.com 
     http:  
       paths:  
       - backend:  
@@ -24,4 +24,14 @@ spec:
             port:  
               number: 80  
         path: /test001/admin-api(/|$)(.*)  
+        pathType: ImplementationSpecific  
+  - host: insource.southeastasia.cloudapp.azure.com 
+    http:  
+      paths:  
+      - backend:  
+          service:  
+            name: admin-ui  
+            port:  
+              number: 80  
+        path: /test001/admin-ui(/|$)(.*)  
         pathType: ImplementationSpecific  

@@ -25,3 +25,13 @@ spec:
               number: 80  
         path: /<insource-ingress-root-path>/admin-api(/|$)(.*)  
         pathType: ImplementationSpecific  
+  - host: <insource-ingress-host> 
+    http:  
+      paths:  
+      - backend:  
+          service:  
+            name: admin-ui  
+            port:  
+              number: 80  
+        path: /<insource-ingress-root-path>/admin-ui(/|$)(.*)  
+        pathType: ImplementationSpecific  

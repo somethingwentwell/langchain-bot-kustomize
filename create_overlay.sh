@@ -35,6 +35,7 @@ cp -r ./kustomize/templates/$template_type/* "./kustomize/overlay/$overlay_folde
 export LC_ALL=C  
 export LANG=C  
 for file in $(find "./kustomize/overlay/$overlay_folder_name" -type f); do  
+  sed -i "" "s/<overlay_folder_name>/$overlay_folder_name/g" "$file" 
   sed -i "" "s/<postgres-pv-name>/$postgres_pv_name/g" "$file"  
   sed -i "" "s/<postgres-data-path>/$postgres_data_path/g" "$file"  
   sed -i "" "s/<insource-pv-name>/$insource_pv_name/g" "$file"  

@@ -9,11 +9,12 @@ resources:
   # - postgres-pv.yml  
   # - insource-pvc.yml  
   # - postgres-pvc.yml 
-  # - get-app-data.yml 
   - postgres-deployment.yml
   - insource-deployment.yml  
   - admin-api-deployment.yml  
+  - admin-ui-deployment.yml 
+  - postgres-service.yml 
   - insource-service.yml  
-  - admin-api-service.yml    
-  - postgres-service.yml  
+  - admin-api-service.yml  
+  - admin-ui-service.yml    
   - ingress.yml

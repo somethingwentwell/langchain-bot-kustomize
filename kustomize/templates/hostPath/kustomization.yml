@@ -15,7 +15,7 @@ resources:
 namespace: <insource-namespace>
 
 patchesStrategicMerge:  
-  - patch-postgres-deployment.yml
   - patch-insource-api-deployment.yml
+  - patch-admin-api-deployment.yml
   - patch-admin-api-deployment.yml
   - patch-ingress.yml

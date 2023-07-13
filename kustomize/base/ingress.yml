@@ -28,3 +28,14 @@ spec:
             name: admin-api  
             port:  
               number: 80  
+  - host: insource.local
+    http:  
+      paths:  
+      - path: /test/admin-ui(/|$)(.*)
+        pathType: ImplementationSpecific  
+        backend:  
+          service:  
+            name: admin-ui  
+            port:  
+              number: 80  
+

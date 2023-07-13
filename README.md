@@ -43,6 +43,7 @@ sudo bash ./create_overlay.sh --template-type hostPath \
  --insource-ingress-root-path test001
 ```
 
+2. AzureFiles
 ```
 sudo bash ./create_overlay.sh --template-type AzureFiles \
  --overlay-folder-name test001 \
@@ -51,7 +52,7 @@ sudo bash ./create_overlay.sh --template-type AzureFiles \
  --insource-pv-name insource-pv-001 \
  --insource-data-path insource-data-001 \
  --insource-namespace insource001 \
- --insource-ingress-host <IP>.nip.io \
+ --insource-ingress-host insource.southeastasia.cloudapp.azure.com \
  --insource-ingress-root-path test001
 ```
 
