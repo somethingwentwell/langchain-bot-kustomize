@@ -1,0 +1,11 @@
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: postgres
+  namespace: insource
+spec:  
+  template:  
+    spec:  
+      containers:  
+      - name: db
+        command: ["sh", "-c", "chown 999:999 /var/lib/postgresql/data"]

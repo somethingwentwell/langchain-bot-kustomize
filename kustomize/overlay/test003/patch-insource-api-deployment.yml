@@ -1,0 +1,29 @@
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: insource-api  
+  namespace: insource
+spec:  
+  template:  
+    spec:  
+      containers:  
+      - name: insource-api  
+        command:  
+        - /bin/bash  
+        - -c  
+        - |  
+            CLONE_DIR="azure-openai-langchain-bot"  
+            GIT_REPO="https://github.com/somethingwentwell/azure-openai-langchain-bot"  
+            
+            # Check if the directory exists  
+            if [ -d "$CLONE_DIR" ]; then  
+              # If the directory exists, update the repository  
+              echo "Directory $CLONE_DIR exists."  
+            else  
+              # If the directory does not exist, clone the repository  
+              echo "Cloning repository into $GIT_REPO..."  
+              git clone "$GIT_REPO"  
+            fi  
+            cp .env.test azure-openai-langchain-bot/.env
+            cd azure-openai-langchain-bot
+            uvicorn main:app --root-path /test003/api --reload --host 0.0.0.0 --port 80  
