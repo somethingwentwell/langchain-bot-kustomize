@@ -46,14 +46,14 @@ sudo bash ./create_overlay.sh --template-type hostPath \
 2. AzureFiles
 ```
 sudo bash ./create_overlay.sh --template-type AzureFiles \
- --overlay-folder-name test001 \
- --postgres-pv-name postgres-pv-001 \
- --postgres-data-path postgres-data-001 \
- --insource-pv-name insource-pv-001 \
- --insource-data-path insource-data-001 \
- --insource-namespace insource001 \
+ --overlay-folder-name test003 \
+ --postgres-pv-name postgres-pv-003 \
+ --postgres-data-path postgres-data-003 \
+ --insource-pv-name insource-pv-003 \
+ --insource-data-path insource-data-003 \
+ --insource-namespace insource003 \
  --insource-ingress-host insource.southeastasia.cloudapp.azure.com \
- --insource-ingress-root-path test001
+ --insource-ingress-root-path test003
 ```
 
 ## Apply overlay
