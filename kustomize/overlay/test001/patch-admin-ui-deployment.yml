@@ -1,0 +1,15 @@
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: admin-ui
+  namespace: insource
+spec:  
+  template:  
+    spec:  
+      containers:  
+      - name: admin-ui
+        env:
+          - name: INSOURCE_CHAT_HOST
+            value: "insource.southeastasia.cloudapp.azure.com/test001/api"
+          - name: INSOURCE_ADMIN_HOST
+            value: "insource.southeastasia.cloudapp.azure.com/test001/admin-api"
